@@ -17,62 +17,84 @@ class Hero
   private $name;
   private $favColor;
 
+  // Nombre de vie du Héro
   private $lives;
+  // Taille du Héro
   private $isBig;
+  // Etat du Héro (vulnérable ou insensible aux dégâts)
   private $invincible;
 
+  // Constructeur par défaut
   public function __construct($name, $favColor) {
+    // Nom du Héro à passer en paramètre du constructeur
     $this->name = $name;
+    // Couleur favorite du Héro à passer en paramètre du constructeur
     $this->favColor = $favColor;
 
+    // Le nombre de vie de base est '3'
     $this->lives = 3;
+    // Le Héro n'est pas 'grand' par défaut
     $this->isBig = false;
+    // Le Héro n'est pas invincible par défaut
     $this->invincible = false;
   }
 
+  // Retourne une phrase contenant le nom du Héro et sa couleur favorite
   public function hello() {
-    return 'It\'s me, '.$this->name.'!';
+    return 'It\'s me, '.$this->name.'! I love '.$this->favColor.'!';
   }
 
+  // Getter $lives
   public function getLives() {
     return $this->lives;
   }
 
+  // Getter $favColor
   public function getColor() {
     return $this->favColor;
   }
 
+  // Le Héro prend un coup
   public function takeHit() {
+    // Si le Héro est invincible il est insensible aux dégâts
     if (!$this->invincible) {
+      // S'il est gros, il redevient petit
       if ($this->isBig) {
         $this->isBig = false;
       }
+      // S'il n'était pas gros, il perd une vie
       else {
         $this->lives--;
       }
     }
   }
 
+  // Le Héro mange un champignon vert
   public function up() {
     $this->lives++;
   }
 
+  // Getter $isBig
   public function isBig() {
     return $this->isBig;
   }
 
+  // Getter $invincible
   public function hasStar() {
     return $this->invincible;
   }
 
+  // Le Héro mange un champignon rouge
   public function eatMushroom() {
     $this->isBig = true;
   }
 
+  // Le Héro attrape une étoile
   public function receiveStar() {
     $this->invincible = true;
   }
 
+  // Le Héro perd l'effet de l'étoile
   public function vanishStar() {
     $this->invincible = false;
   }

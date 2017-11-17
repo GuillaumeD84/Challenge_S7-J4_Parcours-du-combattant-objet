@@ -22,7 +22,7 @@ require_once '../inc/functions.php';
  *      echo $mario->getLives(); // Display: 2
  *
  *      $luigi = new Hero('Luigi');
- *      echo $luigi->hello(); // Display: "It’s me, Luigi!"
+ *      echo $luigi->hello(); // Display: "It's me, Luigi!"
  *      $luigi->up();
  *      $luigi->up();
  *      $luigi->takeHit();
@@ -34,23 +34,30 @@ class Hero
   private $name;
   private $lives;
 
+  // Constructeur par défaut
   public function __construct($name) {
+    // Nom du Héro à passer en paramètre du constructeur
     $this->name = $name;
+    // Le nombre de vie de base est '3'
     $this->lives = 3;
   }
 
+  // Retourne une phrase contenant le nom du Héro
   public function hello() {
     return 'It\'s me, '.$this->name.'!';
   }
 
+  // Getter $lives
   public function getLives() {
     return $this->lives;
   }
 
+  // Le Héro prend un coup
   public function takeHit() {
     $this->lives--;
   }
 
+  // Le Héro mange un champignon vert
   public function up() {
     $this->lives++;
   }

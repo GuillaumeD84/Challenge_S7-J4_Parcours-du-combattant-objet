@@ -40,18 +40,23 @@ class Mario
 {
   private $lives;
 
+  // Constructeur par défaut
   public function __construct() {
+    // Le nombre de vie de base est '3'
     $this->lives = 3;
   }
 
+  // Getter $lives
   public function getLives() {
     return $this->lives;
   }
 
+  // Mario prend un coup
   public function takeHit() {
     $this->lives--;
   }
 
+  // Mario mange un champignon vert
   public function up() {
     $this->lives++;
   }
